@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The ground behind each widget button.
+
+    The widget tile itself is transparent, so without this the two marks would
+    float on the wallpaper with nothing to separate them from it — unreadable
+    over a busy photo, and not obviously tappable over any of them.
+
+    The colour resolves to the user's wallpaper palette on API 31+; API 29-30
+    have no dynamic colour and take the static Material 3 secondary container
+    from values/ instead. Referencing a system_accent colour directly would fail
+    on those versions, which minSdk 29 permits.
+
+    16dp on a 48dp control: rounded enough to read as a Material 3 button, not so
+    rounded that it becomes a circle and loses the family resemblance to the card
+    beside it.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="16dp" />
+    <solid android:color="@color/widget_button_background" />
+</shape>

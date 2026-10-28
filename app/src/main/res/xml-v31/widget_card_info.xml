@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    API 31+ variant. Adds cell-based sizing, which is how modern launchers place
+    a widget, and a preview drawn from the real layout rather than a static image.
+
+    targetCellWidth/Height is the 5x2 it is placed at. There is no cell-based
+    counterpart for the lower bound — minResizeWidth/Height in dp is the only
+    way to express it — so the 3x2 floor is the 180dp inherited from the base
+    variant.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="320dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="180dp"
+    android:minResizeHeight="110dp"
+    android:targetCellWidth="5"
+    android:targetCellHeight="2"
+    android:previewLayout="@layout/widget_card"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_card"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />

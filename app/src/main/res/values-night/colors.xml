@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Matches the Compose dark scheme's surface role. -->
+    <color name="window_background">#1C1B1F</color>
+
+    <!-- Widget button ground for API 29-30 in dark mode; no dynamic colour. -->
+    <color name="widget_button_background">#4A4458</color>
+    <color name="widget_icon_tint">#E8DEF8</color>
+
+    <color name="widget_caption">#E6E1E5</color>
+    <color name="widget_caption_shadow">#FF000000</color>
+</resources>

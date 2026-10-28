@@ -1,0 +1,33 @@
+# Secrets — double layer with ~/.gitignore_global
+_secrets*
+*.env
+!*.env.template
+
+# Release signing key — never in any repository, on any branch
+keystore/
+*.jks
+*.keystore
+
+# Logs / debug drop zone
+logs/
+*.log
+
+# Gradle / Android build output
+.gradle/
+build/
+app/build/
+local.properties
+captures/
+.cxx/
+
+# IDE
+.idea/
+*.iml
+.kotlin/
+
+# OS
+.DS_Store
+
+# Licensed stock artwork sources — not redistributable. See NOTICE.
+assets/icons/
+mockups/

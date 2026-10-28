@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!--
+        Required to read a contact chosen through the system picker.
+
+        The picker's temporary URI grant covers only the exact URI it returns —
+        not the /entities sub-path holding the phone numbers, emails and
+        organisation — so a card cannot be assembled without this. That was
+        established by observation, not assumption: the provider refuses the
+        sub-URI with "requires android.permission.READ_CONTACTS".
+
+        It is requested on demand, only when "Copy from Contacts" is used, and
+        never at launch. On GrapheneOS, Contact Scopes lets the grant be narrowed
+        to a single contact rather than the whole address book. The share-sheet
+        route below needs no permission at all and remains available to anyone
+        who would rather not grant this.
+    -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- HCE is the entire point of the app; without it there is nothing to run. -->
+    <uses-feature
+        android:name="android.hardware.nfc.hce"
+        android:required="true" />
+
+    <application
+        android:name=".NfcBusinessCardApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="33"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NFCBusinessCard">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.NFCBusinessCard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--
+                Contacts > Share > NFC Business Card. The sharing app grants read
+                on the exact URI it hands over, so this path imports a contact
+                with no permission of our own.
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/vcard" />
+                <data android:mimeType="text/x-vcard" />
+                <data android:mimeType="text/directory" />
+            </intent-filter>
+
+            <!--
+                Opening a .vcf from a file manager.
+
+                No BROWSABLE category: that declares the app handles web links,
+                which this does not, and lint rightly rejects it without a URL.
+                The schemes are stated explicitly so the filter matches a file
+                manager's content:// URI rather than anything on the network.
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!--
+                    One attribute per tag. Android merges every data attribute
+                    across the tags in a filter, so combining scheme and
+                    mimeType on one tag reads like a pairing that the platform
+                    does not actually enforce.
+                -->
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="text/vcard" />
+                <data android:mimeType="text/x-vcard" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            The 5x2 home screen widget. Shows the active card in landscape with
+            NFC and QR controls beside it, each opening the app straight into the
+            thing it names.
+        -->
+        <receiver
+            android:name=".widget.CardWidgetProvider"
+            android:label="@string/widget_label"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_card_info" />
+        </receiver>
+
+        <!--
+            The card-emulation service. The platform binds this by name, so the
+            class must not be renamed or minified away (see proguard-rules.pro).
+
+            requireDeviceUnlock stays true, a deliberate decision confirmed on
+            hardware. A tap against a locked phone
+            silently does nothing, and the reader cannot tell the difference
+            between "policy says no" and "no tag here"; that is accepted, and it
+            is the reason a lock-screen QR was considered and not built. One locked phone cannot honestly offer a readable code and a
+            dead tap at the same time.
+
+            It is a manifest attribute the platform reads at install time. There
+            is no runtime API for it, which is why settings does not offer it.
+        -->
+        <service
+            android:name=".hce.NdefHostApduService"
+            android:exported="true"
+            android:permission="android.permission.BIND_NFC_SERVICE">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.nfc.cardemulation.host_apdu_service"
+                android:resource="@xml/apduservice" />
+        </service>
+
+    </application>
+
+</manifest>

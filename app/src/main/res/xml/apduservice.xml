@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Registers this app as a handler for the NFC Forum NDEF application AID.
+
+    D2760000850101 is the well-known AID a Type 4 reader selects by name when it
+    is looking for an NDEF-bearing application. Registering it is what makes a
+    reader treat this phone as a tag rather than ignoring it.
+-->
+<host-apdu-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/hce_service_description"
+    android:requireDeviceUnlock="true"
+    android:apduServiceBanner="@drawable/hce_service_banner">
+
+    <aid-group
+        android:description="@string/hce_aid_group_description"
+        android:category="other">
+        <aid-filter android:name="D2760000850101" />
+    </aid-group>
+
+</host-apdu-service>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Working Name only. The project has no marketing name yet, so the app is
+        called what it is.
+    -->
+    <string name="app_name">NFC Business Card</string>
+
+    <!-- Card emulation service, shown in Android's Tap &amp; pay settings. -->
+    <string name="hce_service_description">NFC Business Card</string>
+    <string name="hce_aid_group_description">Share contact details over NFC</string>
+
+    <!-- Navigation -->
+    <string name="nav_settings">Settings</string>
+    <string name="nav_back">Back</string>
+
+    <!-- Main screen -->
+    <string name="main_title">NFC Business Card</string>
+    <string name="main_send_mode">Send mode</string>
+    <string name="main_send_mode_on">On — hold the phone to a reader</string>
+    <string name="main_send_mode_off">Off — the phone reads tags normally</string>
+    <string name="main_send_mode_claim_failed">Another app is handling NFC card emulation. Your card may not be the one shared.</string>
+    <string name="main_send_mode_foreground_note">Send mode needs this screen open. Leaving the app turns it off.</string>
+    <string name="main_show_qr">Show QR code</string>
+    <string name="main_active_item">Active item</string>
+    <string name="main_no_active_item">No active item</string>
+    <string name="main_no_active_item_body">Add a link or vCard, then pick one to share.</string>
+    <string name="main_add_first_item">Add an item</string>
+    <string name="main_change_item">Change</string>
+    <string name="main_card_face_description">Your business card</string>
+
+    <!-- Full card mode -->
+    <string name="card_flip_label">Flip the card</string>
+    <string name="card_qr_face_hint">Scan this to open the link</string>
+    <string name="card_flip_hint">Tap the card to turn it the other way</string>
+    <string name="card_button_nfc">NFC</string>
+    <string name="card_button_qr">QR code</string>
+    <string name="card_nfc_on">NFC sending is on</string>
+    <string name="card_nfc_off">NFC sending is off</string>
+    <string name="main_open_full_card">Show the card full size</string>
+
+    <!-- NFC availability -->
+    <string name="nfc_unavailable_title">NFC unavailable</string>
+    <string name="nfc_unavailable_body">This device has no NFC hardware, so send mode cannot work. The QR code still does.</string>
+    <string name="nfc_disabled_title">NFC is off</string>
+    <string name="nfc_disabled_body">Turn NFC on in system settings to share by tapping.</string>
+    <string name="nfc_open_settings">Open NFC settings</string>
+
+    <!-- QR view -->
+    <string name="qr_title">QR code</string>
+    <string name="qr_brightness_label">Screen brightness</string>
+    <string name="qr_brightness_low">–</string>
+    <string name="qr_brightness_high">+</string>
+
+    <string name="qr_swipe_hint">Swipe to change how much detail the code carries</string>
+    <string name="qr_tier_link_only">Link only</string>
+    <string name="qr_tier_minimal">Minimal</string>
+    <string name="qr_tier_standard">Standard</string>
+    <string name="qr_tier_full">Full</string>
+    <string name="qr_sharing_header">This code shares</string>
+    <string name="qr_field_link">Link</string>
+    <string name="qr_field_name">Name</string>
+    <string name="qr_field_phone">Phone</string>
+    <string name="qr_field_email">Email</string>
+    <string name="qr_field_organisation">Organisation</string>
+    <string name="qr_field_job_title">Job title</string>
+    <string name="qr_field_website">Website</string>
+    <string name="qr_field_address">Address</string>
+    <string name="qr_field_note">Note</string>
+    <string name="qr_close">Close</string>
+    <string name="qr_unavailable">This item has nothing to encode.</string>
+    <string name="qr_too_large">Too much detail to encode. Try a lower detail level.</string>
+    <string name="qr_code_description">QR code for the active item</string>
+
+    <!-- Item library -->
+    <string name="items_title">Shareable items</string>
+    <string name="items_empty">No items yet</string>
+    <string name="items_empty_body">Add a link or a vCard to start sharing.</string>
+    <string name="items_import_vcard">Import a .vcf file</string>
+    <string name="items_import_contact">Copy from Contacts</string>
+    <string name="items_import_failed">That file could not be read as a vCard.</string>
+    <string name="items_import_contact_failed">That contact could not be read.</string>
+    <string name="items_import_empty">That contact has no name, phone number or email address to share.</string>
+    <string name="items_import_permission_needed">Reading a contact needs the Contacts permission. On GrapheneOS you can scope it to just the contacts you choose.</string>
+    <string name="items_import_permission_refused">Without the Contacts permission, use Share from the Contacts app, or import a .vcf file.</string>
+    <string name="shared_import_done">Imported “%1$s”.</string>
+    <string name="shared_import_not_a_card">That did not contain a contact card.</string>
+    <string name="shared_import_unreadable">That card could not be read.</string>
+    <string name="items_import_denied">Android would not allow that contact to be read. Try exporting it to a .vcf file and importing that instead.</string>
+    <string name="items_add">Add item</string>
+    <string name="items_add_url">Create a link</string>
+    <string name="items_add_vcard">Create a vCard</string>
+    <string name="items_edit">Edit</string>
+    <string name="items_delete">Delete</string>
+    <string name="items_delete_confirm_title">Delete this item?</string>
+    <string name="items_delete_confirm_body">This cannot be undone.</string>
+    <string name="items_active_badge">Active</string>
+    <string name="items_move_up">Move up</string>
+    <string name="items_move_down">Move down</string>
+
+    <!-- Item editor: shared -->
+    <string name="editor_title_new_url">New link</string>
+    <string name="editor_title_new_vcard">New vCard</string>
+    <string name="editor_title_edit_url">Edit link</string>
+    <string name="editor_title_edit_vcard">Edit vCard</string>
+    <string name="editor_save">Save</string>
+    <string name="editor_cancel">Cancel</string>
+    <string name="editor_label">Label</string>
+    <string name="editor_label_supporting">How this item appears in your list</string>
+    <string name="editor_label_required">A label is required</string>
+
+    <!-- Item editor: URL -->
+    <string name="editor_url">Link</string>
+    <string name="editor_url_supporting">Must start with https://</string>
+    <string name="editor_url_required">A link is required</string>
+    <string name="editor_url_invalid">Enter a valid https:// link</string>
+
+    <!-- Item editor: vCard -->
+    <string name="editor_vcard_name_section">Name</string>
+    <string name="editor_formatted_name">Display name</string>
+    <string name="editor_given_name">First name</string>
+    <string name="editor_family_name">Last name</string>
+    <string name="editor_photo">Photo</string>
+    <string name="editor_photo_supporting">Shown in this app only. Never sent over NFC or in a QR code.</string>
+    <string name="editor_photo_choose">Choose photo</string>
+    <string name="editor_photo_remove">Remove photo</string>
+    <string name="editor_vcard_work_section">Work</string>
+    <string name="editor_organisation">Organisation</string>
+    <string name="editor_job_title">Job title</string>
+    <string name="editor_vcard_contact_section">Contact</string>
+    <string name="editor_phone">Phone</string>
+    <string name="editor_phone_add">Add phone number</string>
+    <string name="editor_email">Email</string>
+    <string name="editor_email_add">Add email address</string>
+    <string name="editor_website">Website</string>
+    <string name="editor_vcard_more_section">More</string>
+    <string name="editor_address">Address</string>
+    <string name="editor_note">Note</string>
+    <string name="editor_remove_field">Remove</string>
+    <string name="editor_name_required">A display name is required</string>
+    <string name="editor_field_type">Type</string>
+    <string name="editor_type_work">Work</string>
+    <string name="editor_type_home">Home</string>
+    <string name="editor_type_mobile">Mobile</string>
+    <string name="editor_type_other">Other</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_items_section">Shareable items</string>
+    <string name="settings_manage_items">Manage items</string>
+    <string name="settings_manage_items_supporting">Add, edit, reorder and delete</string>
+    <string name="settings_card_section">Card</string>
+    <string name="settings_card_face">Card image</string>
+    <string name="settings_card_face_placeholder">Drawn from your contact details</string>
+    <string name="settings_card_face_custom">Using your own image</string>
+    <string name="settings_card_face_clear">Use generated card</string>
+    <string name="settings_card_aspect">Card shape</string>
+    <string name="settings_qr_section">QR code</string>
+    <string name="settings_default_tier">Opens at</string>
+    <string name="settings_max_brightness">Full brightness in QR view</string>
+    <string name="settings_max_brightness_supporting">Brighter codes scan more reliably in poor light</string>
+    <string name="settings_feedback_section">Tap confirmation</string>
+    <string name="settings_feedback_supporting">During a tap the phone is usually facing away from you, so it can be hard to tell whether the card was actually read.</string>
+    <string name="settings_flash_on_tap">Flash the screen</string>
+    <string name="settings_sound_on_tap">Play a sound</string>
+    <string name="settings_sound_on_tap_supporting">Uses your notification sound, and respects Do Not Disturb</string>
+    <string name="settings_vibrate_on_tap">Vibrate</string>
+    <string name="settings_about_section">About</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_changelog">What\'s new</string>
+    <string name="settings_licences">Open source licences</string>
+
+
+    <!-- Card aspect ratios -->
+    <string name="aspect_iso">ISO / CR80 — 85.6 × 54</string>
+    <string name="aspect_au">Australian — 90 × 55</string>
+    <string name="aspect_us">US — 3.5 × 2 in</string>
+
+    <!-- Home screen widget -->
+    <string name="widget_label">NFC Business Card</string>
+    <string name="widget_card_description">Your business card. Tap to open it full size.</string>
+    <string name="widget_nfc_description">Turn on NFC sending</string>
+    <string name="widget_qr_description">Show the QR code</string>
+
+    <!-- Changelog -->
+    <string name="changelog_title">What\'s new</string>
+</resources>

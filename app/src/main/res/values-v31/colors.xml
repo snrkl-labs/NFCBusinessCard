@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Dynamic colour: the widget buttons pick up the user's wallpaper palette,
+        so they read as part of the home screen rather than as this app's purple
+        dropped onto it.
+
+        Accent 1 at 100 with its text at 900 is the Material 3 secondary
+        container pairing, which is what these are — small tonal buttons.
+    -->
+    <color name="widget_button_background">@android:color/system_accent1_100</color>
+    <color name="widget_icon_tint">@android:color/system_accent1_900</color>
+
+    <!--
+        The caption sits directly on the wallpaper, so it takes the neutral at its
+        darkest rather than an accent: it has to stay legible against colours
+        this palette says nothing about.
+    -->
+    <color name="widget_caption">@android:color/system_neutral1_900</color>
+    <color name="widget_caption_shadow">@android:color/system_neutral1_50</color>
+</resources>

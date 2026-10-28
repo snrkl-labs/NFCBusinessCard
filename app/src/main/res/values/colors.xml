@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Matches the Compose light scheme's surface role, so the pre-Compose
+         window background does not flash a different colour on cold start. -->
+    <color name="window_background">#FFFBFE</color>
+
+    <!--
+        Widget button ground for API 29-30, which have no dynamic colour.
+        Material 3's light secondary container and its matching on-colour;
+        values-v31 overrides both with the system accent so the buttons sit in
+        the user's wallpaper palette on devices that have one.
+    -->
+    <color name="widget_button_background">#E8DEF8</color>
+    <color name="widget_icon_tint">#1D192B</color>
+
+    <!--
+        Caption text on the widget. The tile is transparent, so this sits on the
+        wallpaper and cannot be checked against a known ground — hence the
+        shadow in the opposite tone, which is what keeps it readable over a busy
+        photo. Launcher labels solve the same problem the same way.
+    -->
+    <color name="widget_caption">#1C1B1F</color>
+    <color name="widget_caption_shadow">#FFFFFFFF</color>
+</resources>

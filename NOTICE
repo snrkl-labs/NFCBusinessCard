@@ -1,0 +1,48 @@
+NFC Business Card
+Copyright 2026 snrkl
+
+This product includes software developed as part of the NFC Business Card
+project, licensed under the Apache License, Version 2.0. See LICENSE.
+
+--------------------------------------------------------------------------------
+Third-party components distributed in the application binary
+--------------------------------------------------------------------------------
+
+The following are compiled into the released APK. All are used unmodified.
+
+Apache License 2.0 (see LICENSE for the full text):
+
+  AndroidX and Jetpack Compose libraries      Copyright The Android Open Source Project
+  androidx.compose.material3                  Copyright The Android Open Source Project
+  androidx.room                               Copyright The Android Open Source Project
+  androidx.datastore                          Copyright The Android Open Source Project
+  androidx.navigation                         Copyright The Android Open Source Project
+  androidx.lifecycle                          Copyright The Android Open Source Project
+  androidx.activity                           Copyright The Android Open Source Project
+  Kotlin standard library                     Copyright JetBrains s.r.o. and contributors
+  kotlinx.coroutines                          Copyright JetBrains s.r.o. and contributors
+  ZXing core                                  Copyright ZXing authors
+  Coil                                        Copyright Coil Contributors
+  OkHttp / Okio (via Coil)                    Copyright Square, Inc.
+
+Icon artwork:
+
+  The NFC and QR button icons are licensed stock artwork, used under a paid
+  licence granting unlimited use to the licensee. They are redistributed here
+  only as rasterised assets compiled into the application.
+
+--------------------------------------------------------------------------------
+Development-time components (not distributed in the APK)
+--------------------------------------------------------------------------------
+
+  material-3 agent skill                      MIT License
+                                              Copyright (c) 2026 CWTI Ltd
+                                              https://github.com/hamen/material-3-skill
+                                              Full text: .agents/skills/material-3/LICENSE
+
+  Gradle build tooling, Android Gradle Plugin, KSP   Apache License 2.0
+  JUnit 4                                            Eclipse Public License 1.0
+  Truth, Robolectric, AndroidX Test                  Apache License 2.0
+
+  These are used to build and test the application. They are not compiled into
+  the released APK and impose no obligation on anyone redistributing it.

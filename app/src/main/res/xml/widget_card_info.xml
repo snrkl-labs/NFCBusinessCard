@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Resizable between 3x2 and 5x2 cells.
+
+    minWidth/minHeight follow the documented formula 70 * n - 30, so 5 columns is
+    320dp and 3 columns is 180dp; 2 rows is 110dp.
+
+    minWidth is the 5-column size because that is what the widget is placed at —
+    on these API levels the launcher uses it as the default footprint. minResize*
+    is the 3-column size, which is how far it may then be dragged in. At that
+    width the NFC and QR buttons are hidden and the card has the tile to itself;
+    CardWidgetProvider decides that from the widget's measured width, so there is
+    one widget here rather than two.
+
+    updatePeriodMillis is 0: the widget is redrawn by the app when the active
+    item changes, not on a timer. A polling widget would wake the device to
+    redraw something that had not changed.
+
+    targetCellWidth, targetCellHeight and previewLayout are API 31+ and live in
+    xml-v31/. Declaring them here would have lint flagging attributes that older
+    versions silently ignore.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="320dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="180dp"
+    android:minResizeHeight="110dp"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_card"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />
