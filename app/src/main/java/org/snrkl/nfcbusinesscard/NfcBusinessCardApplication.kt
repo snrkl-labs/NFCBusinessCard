@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
@@ -51,6 +52,24 @@ class NfcBusinessCardApplication : Application() {
         super.onCreate()
         container = AppContainer(this)
         keepActivePayloadCurrent()
+        keepWidgetCardFaceCurrent()
+    }
+
+    /**
+     * Redraws the home screen widget when the Card Face setting changes.
+     *
+     * The widget draws the chosen card image and shape, not just the active
+     * item, so a new image or shape has to reach it too. Without this the widget
+     * kept the old card until the active item next changed.
+     */
+    private fun keepWidgetCardFaceCurrent() {
+        applicationScope.launch {
+            container.preferencesRepository.preferences
+                .map { it.cardFaceUri to it.cardAspectRatio }
+                .distinctUntilChanged()
+                .drop(1)
+                .collect { CardWidgetProvider.refreshAll(this@NfcBusinessCardApplication) }
+        }
     }
 
     /**

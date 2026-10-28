@@ -33,6 +33,13 @@ internal data class ChangelogEntry(
 /** Newest first, matching the convention used by the project's status files. */
 internal val CHANGELOG: List<ChangelogEntry> = listOf(
     ChangelogEntry(
+        version = "0.04.01",
+        date = "2026-10-28",
+        changes = listOf(
+            "The home screen widget now updates as soon as you change the card image or card shape, instead of waiting for you to switch items.",
+        ),
+    ),
+    ChangelogEntry(
         version = "0.04.00",
         date = "2026-10-28",
         changes = listOf(

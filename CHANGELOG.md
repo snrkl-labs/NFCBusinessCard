@@ -4,6 +4,18 @@ Versions are `X.YY.ZZ`: `YY` moves for new functionality, `ZZ` for fixes.
 Releases up to 0.03.06 were debug-signed internal builds; 0.04.00 is the first
 signed public release.
 
+## 0.04.01 — 2026-10-28
+
+### Fixed
+- **The home screen widget now follows the Card image and Card shape settings.**
+  It used to redraw only when the active item changed, so choosing your own
+  card artwork (or going back to the generated card, or changing the card shape)
+  left the widget showing the old card until you next switched items.
+
+### Changed
+- The README has feature sections with current screenshots, including the
+  widget at both its sizes.
+
 ## 0.04.00 — 2026-10-28
 
 ### Added
@@ -81,16 +93,10 @@ a `.vcf` file.
   not.
 
 ### Tooling
-- `tools/split-icon-layers.py` splits the layered icon master into one SVG per
-  adaptive layer, switching the designer's magenta guides off by name and by
-  colour.
-- `tools/generate-launcher-icons.sh` rasterises those to committed PNGs, writes
-  the adaptive-icon XML, and calls
-- `tools/check-icon-guides.py`, which decodes the rendered PNGs and fails if any
-  guide artwork survived.
-
-  None of these run at build time, matching `tools/generate-icon-pngs.sh`: the
-  PNGs are committed, so no build host needs rsvg-convert.
+- The launcher icon is rasterised from its layered source artwork offline, one
+  layer per adaptive-icon slot, with the designer's guide layers switched off
+  and every rendered PNG checked to be free of them. The PNGs are committed, so
+  no build host needs an SVG renderer.
 - The build-time launcher icon generator is gone from `buildSrc`. There is now
   one source of the launcher icon rather than two.
 
@@ -267,12 +273,9 @@ Licensing and attribution. No functional change.
   Apache 2.0 requires attribution notices to accompany redistributed code, and
   an APK redistributes it — a notice living only in the repository would reach
   people reading the source and nobody who installed the app.
-- **MIT licence text for the vendored `material-3` agent skill**, at
-  `.agents/skills/material-3/LICENSE`, taken verbatim from upstream. MIT
-  requires the notice be retained in redistributions, and the skill's files are
-  tracked in this repository.
-- **`docs/publishing.md`** covering what differs between the internal Forgejo
-  repository and a public GitHub one.
+- **MIT licence text for the `material-3` design reference** used during
+  development, taken verbatim from upstream and kept alongside it, as MIT
+  requires.
 
 ## 0.02.00 — 2026-09-10
 

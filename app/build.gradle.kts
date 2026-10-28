@@ -8,7 +8,7 @@ plugins {
 // versionCode is derived, never hand-maintained, so it cannot drift or decrease:
 //   versionCode = X * 10000 + YY * 100 + ZZ
 // 0.01.00 -> 100, 0.04.00 -> 400, 1.00.00 -> 10000.
-val appVersionName = "0.04.00"
+val appVersionName = "0.04.01"
 
 val appVersionCode = run {
     val parts = appVersionName.split(".")
@@ -46,8 +46,8 @@ android {
                 "proguard-rules.pro",
             )
             // Built unsigned on purpose. Signing is a separate, interactive step
-            // (tools/sign-release.sh) so the keystore passphrase is never stored
-            // where Gradle could read it. Do not add a signingConfig here.
+            // outside Gradle, so the keystore passphrase is never stored where
+            // Gradle could read it. Do not add a signingConfig here.
         }
     }
 

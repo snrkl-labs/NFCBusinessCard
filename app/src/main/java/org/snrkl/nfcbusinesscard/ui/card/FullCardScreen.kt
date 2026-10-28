@@ -190,9 +190,8 @@ internal fun FullCardScreen(
 /**
  * A button glyph, drawn from the operator's own artwork.
  *
- * Rasterised from the SVG sources in `assets/icons` at every density bucket by
- * `tools/generate-icon-pngs.sh` and committed, so the build needs no SVG
- * toolchain and the app ships no SVG decoder. Tinted rather than recoloured at
+ * Rasterised from SVG source artwork at every density bucket and committed,
+ * so the build needs no SVG toolchain and the app ships no SVG decoder. Tinted rather than recoloured at
  * export time, so one asset serves the selected and unselected states.
  */
 @Composable

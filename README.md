@@ -8,8 +8,65 @@ and contact cards — lets you pick one as active, and presents it three ways:
 - **As a QR code**, with swipeable detail levels for when a code will not scan.
 - **As a card image**, for people who just want to read the details.
 
-Built for GrapheneOS Pixel devices, and works on any Android 10+ phone. No
-Google Play Services, no network access, no telemetry.
+Built for GrapheneOS Pixel devices, and runs on Android 10 and later; sharing
+over NFC needs a phone with NFC. No Google Play Services, no network access, no
+telemetry.
+
+## <img src="screenshots/app-icon.png" height="48" alt="App icon"> Share over NFC
+
+- Turn on **send mode** and the phone becomes an NFC tag: hold it to another
+  phone and your active item is read, exactly as from a physical NFC card.
+- A **link** is the most widely readable choice. iPhones open links straight
+  from a tap, so a link to a hosted `.vcf` gets your contact card onto an iPhone
+  too. A **vCard** is shared directly, for Android readers.
+- Send mode only works while the app is open and the phone is unlocked — the
+  screen says so rather than pretending otherwise. A locked phone shares nothing.
+- **Tap confirmation:** a flash, a sound or a vibration tells you the card was
+  actually read, since the screen is usually facing away from you.
+
+<img src="screenshots/main-card.png" width="220" alt="Main screen with a vCard active"> <img src="screenshots/send-mode-on.png" width="220" alt="Send mode on">
+
+## <img src="screenshots/app-icon.png" height="48" alt="App icon"> Show a QR code
+
+- For anyone without NFC. Codes are generated on the phone from the active item,
+  never stored.
+- **Swipe between detail levels** — Link only, Minimal, Standard, Full. A sparse
+  code has bigger squares and scans in poor light or from a weak camera; a dense
+  one carries more. A link has just the one level.
+- An on-screen **brightness** slider (full brightness by default), with the
+  screen kept on while the code is showing.
+- Photos are never put in a code. They make it unscannable.
+
+<img src="screenshots/qr-link-only.png" width="220" alt="QR code, Link only detail level"> <img src="screenshots/qr-minimal.png" width="220" alt="QR code, Minimal detail level">
+
+## <img src="screenshots/app-icon.png" height="48" alt="App icon"> Show the card
+
+- For people who just want to read the details. Use your own card artwork as a
+  PNG, or let the app draw a card from your contact details.
+- **Full card mode** fills the screen with the card turned to face the person
+  you are showing it to. Tap it to turn it the other way. NFC and QR are one tap
+  away at the bottom.
+- A **home screen widget** shows the card with NFC and QR buttons. Resize it
+  from 5x2 down to 3x2 and it drops the buttons to show just the card, which
+  sits neatly alongside your app icons.
+
+<img src="screenshots/full-card.png" width="220" alt="Full card mode"> <img src="screenshots/main-generated-card.png" width="220" alt="A card drawn from contact details"> <img src="screenshots/widget.png" width="220" alt="Home screen with the widget at 5x2 and at 3x2">
+
+## <img src="screenshots/app-icon.png" height="48" alt="App icon"> Your items
+
+- Keep several **links** and **vCards** and pick which one is active from the
+  main screen.
+- Create a vCard field by field, **copy one from Contacts**, or **import a
+  `.vcf` file**, including one shared from another app.
+- Reorder, edit and delete. A photo on a vCard is shown in the app only and is
+  never sent.
+- **Settings** cover the card image and shape (Australian 90 × 55, ISO/CR80 or
+  US), which detail level the QR code opens at, brightness, and tap
+  confirmation.
+
+<img src="screenshots/item-library.png" width="220" alt="Shareable items list"> <img src="screenshots/item-picker.png" width="220" alt="Choosing the active item"> <img src="screenshots/vcard-editor.png" width="220" alt="Editing a vCard"> <img src="screenshots/settings.png" width="220" alt="Settings">
+
+Screenshots show placeholder details and sample card artwork.
 
 ## Install
 
